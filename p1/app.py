@@ -2,13 +2,13 @@ from flask import Flask, request, jsonify
 from supabase import create_client, Client
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
+dotenv_path = Path('../.env')
 load_dotenv()
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
-
-# Create Supabase client
 supabase: Client = create_client(url, key)
 
 # Initialize Flask app
