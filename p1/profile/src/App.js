@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Cookies from 'js-cookie'; // Import js-cookie
 import React, { useEffect, useState } from 'react';
+import InterviewAI from './pages/InterviewAI';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children }) => {
@@ -43,6 +44,10 @@ function App() {
           <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/login" element={<Login />} />
+          <Route path='/' exact element={<Home />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/interviewai' element={<InterviewAI />} /> 
         </Routes>
       </Router>
     </>
