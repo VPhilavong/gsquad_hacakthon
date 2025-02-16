@@ -15,7 +15,7 @@ const Login = () => {
     const [lastName, setLastName] = useState("");
     const [jobTitle, setJobTitle] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [role, setRole] = useState("");
+    const [role, setRole] = useState(""); // Role state
     const [error, setError] = useState("");
     
     const navigate = useNavigate(); // Initialize useNavigate hook
@@ -74,6 +74,12 @@ const Login = () => {
         } catch (error) {
             setError(error.response?.data?.message || "Sign Up failed");
         }
+    };
+
+    const handleLogout = () => {
+        Cookies.remove('user_id'); // Remove user_id cookie
+        Cookies.remove('access_token'); // Remove access_token cookie
+        navigate("/login"); // Redirect to login page
     };
 
     return (
@@ -161,30 +167,39 @@ const Login = () => {
                             onChange={(e) => setPhoneNumber(e.target.value)} 
                         />
                     </div>
+
+                    {/* Dropdown for Role */}
                     <div className="input">
                         <CiUser />
-                        <input 
-                            type="text" 
-                            placeholder="Role" 
+                        <select 
                             value={role} 
                             onChange={(e) => setRole(e.target.value)} 
-                        />
+                            className="role-dropdown"
+                        >
+                            <option value="">Select Role</option>
+                            <option value="recruiter">Recruiter</option>
+                            <option value="applicant">Applicant</option>
+                        </select>
                     </div>
                 </div>
             )}
-            
+
             {error && <div className="error">{error}</div>}
 
             {/* Submit Button */}
             {action === "Login" && (
-                <button className="submit" onClick={handleLogin}>
-                    Submit
-                </button>
+                <div className="submit-container2">
+                    <button className="submit" onClick={handleLogin}>
+                        Submit
+                    </button>
+                </div>
             )}
             {action === "Sign Up" && (
-                <button className="submit" onClick={handleSignup}>
-                    Register
-                </button>
+                <div className="submit-container2">
+                    <button className="submit" onClick={handleSignup}>
+                        Register
+                    </button>
+                </div>
             )}
         </div>
     );

@@ -44,7 +44,6 @@ def signup():
 
     # Step 2: Insert the user profile data into the user_profile.users table
     user_id = response.user.id  # Get the Supabase user ID
-    created_at = datetime.datetime.now(datetime.UTC).isoformat()
 
     role_id = 0
     if role == "applicant":
@@ -57,7 +56,6 @@ def signup():
         "first_name": first_name,
         "last_name": last_name,
         "job_title": job_title,
-        "created_at": created_at,
         "email": email,
         "phone_number": phone_number,
         "role_id": role_id
@@ -220,10 +218,12 @@ def update_profile():
     user_id = request.cookies.get('user_id')
     summary = data.get('summary')
     education = data.get('education')
+    work_experience = data.get("work_experience")
 
     text = {
         "education": education,
-        "summary": summary
+        "summary": summary,
+        "work_experience": work_experience
     }
 
     response = supabase.table("user_profile").update(text).eq("user_id", user_id).execute()

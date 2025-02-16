@@ -1,0 +1,59 @@
+.matches-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .matches-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .match-card {
+    background: white;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 1rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .match-card h3 {
+    margin: 0;
+    color: #222;
+  }
+  
+  .match-card p {
+    color: #555;
+    margin: 0.5rem 0;
+  }
+  
+  .match-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .match-card a:hover {
+    text-decoration: underline;
+  }
+  
+  .loading,
+  .error {
+    font-size: 1.25rem;
+    color: #d9534f;
+    margin-top: 2rem;
+  }
+  
