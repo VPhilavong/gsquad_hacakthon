@@ -8,18 +8,11 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen bg-[#EAE7DC] flex flex-col p-4 md:p-8">
-      {/* Sidebar Menu */}
-      <div className="absolute top-4 left-4">
-        <button className="w-8 h-8 cursor-pointer hover:text-gray-600 transition-colors">
-          ☰
-        </button>
-      </div>
-
       {/* Main Container */}
       <div className="flex flex-col md:flex-row gap-6 mt-12 md:mt-16">
 
         {/* Profile Section */}
-        <div className="bg-[#D6C4A0] p-6 rounded-2xl shadow-lg w-full md:w-1/3 lg:w-1/4 flex flex-col items-center h-fit">
+        <div className="bg-[#E98074] p-6 rounded-2xl shadow-lg w-full md:w-1/3 lg:w-1/4 flex flex-col items-center h-fit">
           <img
             src="https://via.placeholder.com/100"
             alt="Profile"
@@ -42,7 +35,7 @@ const ProfilePage = () => {
 
         {/* Right Section */}
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-[#D97C6F] p-6 rounded-2xl shadow-md text-white hover:shadow-xl transition-shadow cursor-pointer
+          <div className="bg-[#E98074] p-6 rounded-2xl shadow-md text-white hover:shadow-xl transition-shadow cursor-pointer
             flex items-center justify-center min-h-[150px]">
             <button className="font-semibold text-lg hover:scale-105 transition-transform">
               + Attach Resume (pdf) Here
@@ -60,7 +53,7 @@ const ProfilePage = () => {
 
 // Reusable section component
 const SectionCard = ({ title, value, onChange }) => (
-  <div className="bg-[#D97C6F] p-6 rounded-2xl shadow-md text-white hover:shadow-xl transition-shadow">
+  <div className="bg-[#E98074] p-6 rounded-2xl shadow-md text-white hover:shadow-xl transition-shadow">
     <h3 className="text-lg font-semibold mb-4">{title}</h3>
     <textarea
       className="bg-white/80 border-2 border-gray-200 rounded-xl p-3 text-sm w-full text-gray-800
