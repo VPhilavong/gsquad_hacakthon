@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-import Interview from './pages/Interview';
+import Interview from './pages/interview';
 import Cookies from 'js-cookie'; // Import js-cookie
 import React, { useEffect, useState } from 'react';
 
@@ -41,10 +41,10 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/interview" element={<ProtectedRoute><Interview/></ProtectedRoute>} />
           <Route path="/login" element={<Login />} />
-          <Route path="/interivew" element={<Interview />} />
         </Routes>
       </Router>
     </>

@@ -3,7 +3,7 @@
       transform: scale(1);
     }
     50% {
-      transform: scale(1.4);
+      transform: scale(1.2);
     }
   }
 
@@ -21,11 +21,12 @@
     justify-content: center;
     font-size: 16px;
     color: white;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
   }
 
   .button2 {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background-color: #E85A4F;
     border: none;
@@ -36,13 +37,14 @@
     justify-content: center;
     font-size: 16px;
     color: white;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
   }
   
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f5f5dc;
+    height: 90vh;
+    background-color: #FFFFFF;
   }
   
