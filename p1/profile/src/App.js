@@ -5,10 +5,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Interview from './pages/interview';
-<<<<<<< HEAD
-=======
 import Matches from './pages/Matches'; // Import MatchesPage
->>>>>>> d5642c027401705df41e7965479ea469e6545c6c
 import Cookies from 'js-cookie'; // Import js-cookie
 import React, { useEffect, useState } from 'react';
 import InterviewAI from './pages/InterviewAI';
