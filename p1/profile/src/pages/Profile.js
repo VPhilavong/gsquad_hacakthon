@@ -56,6 +56,31 @@ const ProfilePage = () => {
     fetchUserProfile();
   }, []); // Empty dependency array to run the effect only once on mount
 
+  // Function to send updated profile data
+  const updateProfile = async () => {
+    try {
+      const updatedData = {
+        summary,
+        education,
+        workExperience,
+      };
+      
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:8000/update_profile", // Update endpoint
+        headers: {
+          "Content-Type": "application/json"
+        },
+        withCredentials: true,
+        data: updatedData
+      });
+      console.log("Profile updated:", response.data);
+    } catch (err) {
+      console.log(err);
+      setError("Failed to update profile");
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>; // Show loading state while fetching data
   }
@@ -67,11 +92,10 @@ const ProfilePage = () => {
   return (
     <div className="profile-page">
       <div className="main-container">
-
         {/* Profile Section */}
         <div className="profile-section">
           <img
-            src={profilePhotoUrl || "https://via.placeholder.com/100"} // Use profile photo URL or default if null
+            src={profilePhotoUrl || "https://via.placeholder.com/100"}
             alt="Profile"
             className="profile-img"
           />
@@ -87,20 +111,27 @@ const ProfilePage = () => {
             />
           </div>
         </div>
-
+  
         {/* Right Section */}
         <div className="right-section">
           <div className="attach-resume">
             <button className="attach-button">+ Attach Resume (pdf) Here</button>
           </div>
-
+  
           <SectionCard title="Education" value={education} onChange={setEducation} />
           <SectionCard title="Work Experience" value={workExperience} onChange={setWorkExperience} />
           <SectionCard title="Contact Information" value={contactInfo} onChange={setContactInfo} />
         </div>
       </div>
+  
+      {/* Submit Button at Bottom */}
+      <div className="submit-container">
+        <button className="submit" onClick={updateProfile}>
+          Save Changes
+        </button>
+      </div>
     </div>
-  );
+  );  
 };
 
 // Reusable section component

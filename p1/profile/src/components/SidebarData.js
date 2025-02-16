@@ -2,6 +2,7 @@ import React from 'react';
 import * as AiIcons from "react-icons/ai";
 import { GiBrain } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
+import * as FaIcons from "react-icons/fa";
 
 export const SidebarData = [
     {
@@ -17,9 +18,15 @@ export const SidebarData = [
       cName: 'nav-text'
     },
     {
-      title: 'Interview',
+      title: 'InterviewAI',
       path: '/interview',
       icon: <GiBrain color='#E85A4F'/>,
+      cName: 'nav-text'
+    },
+    {
+      title: 'Matches',
+      path: '/matches',
+      icon: <FaIcons.FaBriefcase color='#E85A4F'/>,
       cName: 'nav-text'
     }
     // {

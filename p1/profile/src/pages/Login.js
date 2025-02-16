@@ -15,7 +15,7 @@ const Login = () => {
     const [lastName, setLastName] = useState("");
     const [jobTitle, setJobTitle] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [role, setRole] = useState("");
+    const [role, setRole] = useState(""); // Role state
     const [error, setError] = useState("");
     
     const navigate = useNavigate(); // Initialize useNavigate hook
@@ -76,11 +76,11 @@ const Login = () => {
         }
     };
 
-      const handleLogout = () => {
+    const handleLogout = () => {
         Cookies.remove('user_id'); // Remove user_id cookie
         Cookies.remove('access_token'); // Remove access_token cookie
         navigate("/login"); // Redirect to login page
-      };
+    };
 
     return (
         <div className="container">
@@ -167,22 +167,26 @@ const Login = () => {
                             onChange={(e) => setPhoneNumber(e.target.value)} 
                         />
                     </div>
+
+                    {/* Dropdown for Role */}
                     <div className="input">
-                        <CiUser color="#fff" className="icon"/>
-                        <input 
-                            type="text" 
-                            placeholder="Role" 
+                        <CiUser />
+                        <select 
                             value={role} 
                             onChange={(e) => setRole(e.target.value)} 
-                        />
+                            className="role-dropdown"
+                        >
+                            <option value="">Select Role</option>
+                            <option value="recruiter">Recruiter</option>
+                            <option value="applicant">Applicant</option>
+                        </select>
                     </div>
                 </div>
             )}
-            
+
             {error && <div className="error">{error}</div>}
 
             {/* Submit Button */}
-            
             {action === "Login" && (
                 <div className="submit-container2">
                     <button className="submit" onClick={handleLogin}>
