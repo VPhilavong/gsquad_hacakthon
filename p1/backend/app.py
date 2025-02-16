@@ -268,6 +268,26 @@ def get_jobs():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+    
+
+@app.route("/get_applicants", methods=["GET"])
+def get_applicants():
+    user_id = request.cookies.get("user_id")
+
+    if not user_id:
+        return jsonify({"error": "User ID is required"}), 400
+
+    try:
+        response = supabase.rpc("get_applicants", {"recruiter_id_in": user_id}).execute()
+
+        if response.data:
+            return jsonify({"job_matches": response.data}), 200
+        else:
+            return jsonify({"message": "No job matches found"}), 404
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
