@@ -1,0 +1,179 @@
+/* Container for the entire profile page */
+.profile-page {
+  min-height: 100vh; 
+  background-color: #EAE7DC; 
+  flex-direction: column;
+  padding: 1rem; 
+}
+
+/* Main container holding the profile section and right section */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+  margin-top: 3rem; 
+}
+
+@media (min-width: 768px) {
+  /* Adjust the main container for larger screens */
+  .main-container {
+    flex-direction: row;
+    margin-top: 4rem;
+  }
+}
+
+/* Profile section styling */
+.profile-section {
+  background-color: #D8C3A5; 
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
+  max-width: 12%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+/* Profile image styling */
+.profile-img {
+  border-radius: 50%; 
+  width: 8rem; 
+  height: 8rem; 
+  border: 0.25rem solid #E98074; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; 
+}
+
+.profile-img:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Profile name styling */
+.profile-name {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  color: #333; 
+}
+
+/* Profile title styling */
+.profile-title {
+  font-size: 0.875rem; 
+  color: #555; 
+  margin-top: 0.5rem;
+}
+
+/* Container for input fields in the profile section */
+.input-container {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* Label for input fields */
+.input-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Textarea styling for inputs */
+.input-textarea {
+  background-color: rgba(255, 255, 255, 0.5); 
+  border: 0.125rem solid #ccc; 
+  border-radius: 1rem; 
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 0.875rem; 
+  resize: none; 
+  transition: border-color 0.3s, box-shadow 0.3s; 
+}
+
+.input-textarea:focus {
+  outline: none;
+  border-color: #D97C6F; 
+  box-shadow: 0 0 0 0.125rem #D97C6F; 
+}
+
+.input-textarea:hover {
+  border-color: #bbb; /* Border color on hover */
+}
+
+/* Container for the right section */
+.right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between elements */
+  flex: 1;
+}
+
+/* Styling for the attach resume section */
+.attach-resume {
+  background-color: #E98074;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  transition: box-shadow 0.3s;
+}
+
+.attach-resume:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); 
+}
+
+/* Styling for the attach button */
+.attach-button {
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: transform 0.3s;
+}
+
+.attach-button:hover {
+  transform: scale(1.05);
+}
+
+/* Styling for each section card */
+.section-card {
+  background-color: #E98074;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s; 
+}
+
+.section-card:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); 
+}
+
+/* Title styling for each section card */
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Textarea styling for each section card */
+.section-textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0.125rem solid #ccc;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 0.875rem;
+  resize: none;
+  transition: border-color 0.3s, box-shadow 0.3s; 
+  color: #333;
+}
+
+.section-textarea:focus {
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 0 0.125rem white;
+}
+
+.section-textarea:hover {
+  border-color: #bbb; 
+}
