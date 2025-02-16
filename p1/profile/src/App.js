@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-import InterviewAI from './pages/InterviewAI';
 import Cookies from 'js-cookie'; // Import js-cookie
 import React, { useEffect, useState } from 'react';
+import InterviewAI from './pages/InterviewAI';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children }) => {
@@ -41,13 +41,13 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
+          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/login" element={<Login />} />
           <Route path='/' exact element={<Home />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/login' element={<Login />} />
           <Route path='/interviewai' element={<InterviewAI />} /> 
-          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
