@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Audio Interview Demo</title>
+    <style>
+      #controls {
+        margin: 20px 0;
+      }
+      #feedback {
+        margin-top: 20px;
+        font-family: sans-serif;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Audio Interview Demo</h1>
+    
+    <div id="controls">
+      <button id="startBtn">Start Recording</button>
+      <button id="stopBtn" disabled>Stop Recording</button>
+    </div>
+    
+    <label>Interview Question:</label>
+    <input type="text" id="question" size="50" 
+           placeholder="Enter interview question here..." />
+    
+    <div id="feedback"></div>
+    
+    <script>
+      let mediaRecorder;
+      let audioChunks = [];
+      const startBtn = document.getElementById("startBtn");
+      const stopBtn = document.getElementById("stopBtn");
+      const feedbackDiv = document.getElementById("feedback");
+      const questionInput = document.getElementById("question");
+      
+      // Request access to microphone and set up the MediaRecorder
+      async function setupRecorder() {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+
+        mediaRecorder.ondataavailable = (e) => {
+          if (e.data.size > 0) {
+            audioChunks.push(e.data);
+          }
+        };
+
+        // When the recording stops, send the audio to the server
+        mediaRecorder.onstop = async () => {
+          const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+          audioChunks = [];
+
+          // Send audio to /speech-to-text
+          const formData = new FormData();
+          formData.append("audio", audioBlob, "recording.webm");
+          
+          let transcript;
+          try {
+            const sttResponse = await fetch("http://localhost:5000/speech-to-text", {
+              method: "POST",
+              body: formData
+            });
+            const sttData = await sttResponse.json();
+            transcript = sttData.transcript || "";
+          } catch (err) {
+            console.error("Error in /speech-to-text:", err);
+            feedbackDiv.innerHTML = "Error transcribing audio. Check console.";
+            return;
+          }
+
+          console.log("Transcript:", transcript);
+
+          // Send question + transcript to /interview
+          let interviewFeedback;
+          try {
+            const questionVal = questionInput.value || "No specific question provided.";
+            const interviewResponse = await fetch("http://localhost:5000/interview", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                question: questionVal,
+                response: transcript
+              })
+            });
+            const interviewData = await interviewResponse.json();
+            interviewFeedback = interviewData.feedback || "No feedback returned.";
+          } catch (err) {
+            console.error("Error in /interview:", err);
+            feedbackDiv.innerHTML = "Error generating feedback. Check console.";
+            return;
+          }
+
+          console.log("Interview Feedback:", interviewFeedback);
+
+          // Show text feedback on screen
+          feedbackDiv.innerHTML = "<strong>Gemini Feedback:</strong> " + interviewFeedback;
+
+          // Now request TTS from server
+          try {
+            const ttsResponse = await fetch("http://localhost:5000/text-to-speech", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                text: interviewFeedback
+              })
+            });
+            // We get back an MP3 file. We convert it into a blob to play.
+            const ttsBlob = await ttsResponse.blob();
+            const audioUrl = URL.createObjectURL(ttsBlob);
+
+            // Create an audio element and play the TTS
+            const audio = new Audio(audioUrl);
+            audio.play();
+          } catch (err) {
+            console.error("Error in /text-to-speech:", err);
+            feedbackDiv.innerHTML += "<br>Error generating TTS audio. Check console.";
+          }
+        };
+      }
+
+      // Button event listeners
+      startBtn.onclick = async () => {
+        if (!mediaRecorder) {
+          await setupRecorder();
+        }
+        audioChunks = [];
+        mediaRecorder.start();
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        feedbackDiv.innerHTML = "Recording...";
+      };
+
+      stopBtn.onclick = () => {
+        mediaRecorder.stop();
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+      };
+    </script>
+  </body>
+</html>
