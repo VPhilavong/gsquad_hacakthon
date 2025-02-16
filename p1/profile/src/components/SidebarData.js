@@ -15,6 +15,12 @@ export const SidebarData = [
       path: '/profile',
       icon: <IoIcons.IoIosPaper />,
       cName: 'nav-text'
+    },
+    {
+      title: 'Matches',
+      path: '/matches',
+      icon: <FaIcons.FaBriefcase />,
+      cName: 'nav-text'
     }
     // {
     //   title: 'Login',
