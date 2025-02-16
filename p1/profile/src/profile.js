@@ -74,3 +74,4 @@ const SectionCard = ({ title, value, onChange }) => (
 );
 
 export default ProfilePage;
+
