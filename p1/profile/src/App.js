@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import InterviewAI from './pages/InterviewAI';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' exact element={<Home />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/interviewai' element={<InterviewAI />} /> 
         </Routes>
       </Router>
     </>
