@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./profile.css";
 
 const ProfilePage = () => {
+  const [name, setName] = useState("Enter Name Here");
+  const [jobTitle, setJobTitle] = useState("Enter Job Title Here");
   const [summary, setSummary] = useState("Enter A Summary Here");
   const [education, setEducation] = useState("Enter Education Here");
   const [workExperience, setWorkExperience] = useState("Enter Work Experience Here");
@@ -10,7 +12,7 @@ const ProfilePage = () => {
   return (
     <div className="profile-page">
       <div className="main-container">
-        
+
         {/* Profile Section */}
         <div className="profile-section">
           <img
@@ -18,8 +20,24 @@ const ProfilePage = () => {
             alt="Profile"
             className="profile-img"
           />
-          <h2 className="profile-name">Jeff Bezos</h2>
-          <p className="profile-title">Executive Chairman of Amazon</p>
+          <div className="input-container">
+            <label className="input-label">Name:</label>
+            <input 
+              className="input-text"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="input-container">
+            <label className="input-label">Job Position:</label>
+            <input 
+              className="input-text"
+              type="text"
+              value={jobTitle}
+              onChange={(e) => setJobTitle(e.target.value)}
+            />
+          </div>
           <div className="input-container">
             <label className="input-label">Summary</label>
             <textarea
