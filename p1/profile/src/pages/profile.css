@@ -1,21 +1,21 @@
 /* Container for the entire profile page */
 .profile-page {
-  min-height: 100vh; 
-  background-color: #EAE7DC; 
+  min-height: 100vh;
+  background-color: #EAE7DC;
+  display: flex;
   flex-direction: column;
-  padding: 1rem; 
+  padding: 1rem;
 }
 
 /* Main container holding the profile section and right section */
 .main-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; 
-  margin-top: 3rem; 
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
 
 @media (min-width: 768px) {
-  /* Adjust the main container for larger screens */
   .main-container {
     flex-direction: row;
     margin-top: 4rem;
@@ -24,43 +24,29 @@
 
 /* Profile section styling */
 .profile-section {
-  background-color: #D8C3A5; 
+  background-color: #D8C3A5;
   padding: 1.5rem;
   border-radius: 1.5rem;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
-  max-width: 12%; 
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 25%;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
 /* Profile image styling */
 .profile-img {
-  border-radius: 50%; 
-  width: 8rem; 
-  height: 8rem; 
-  border: 0.25rem solid #E98074; 
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  border: 0.25rem solid white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s; 
+  transition: transform 0.3s;
 }
 
 .profile-img:hover {
-  transform: scale(1.05); /* Scale up on hover */
-}
-
-/* Profile name styling */
-.profile-name {
-  font-size: 1.75rem;
-  font-weight: bold;
-  margin-top: 1.5rem;
-  color: #333; 
-}
-
-/* Profile title styling */
-.profile-title {
-  font-size: 0.875rem; 
-  color: #555; 
-  margin-top: 0.5rem;
+  transform: scale(1.05);
 }
 
 /* Container for input fields in the profile section */
@@ -77,33 +63,57 @@
   color: #333;
 }
 
-/* Textarea styling for inputs */
-.input-textarea {
-  background-color: rgba(255, 255, 255, 0.5); 
-  border: 0.125rem solid #ccc; 
-  border-radius: 1rem; 
+/* Text styling for inputs */
+.input-text {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0.125rem solid #ccc;
+  border-radius: 1rem;
   padding: 0.75rem;
   width: 100%;
-  font-size: 0.875rem; 
-  resize: none; 
-  transition: border-color 0.3s, box-shadow 0.3s; 
+  font-size: 0.875rem;
+  resize: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  color: #333;
+}
+
+.input-text:focus {
+  outline: none;
+  border-color: #D97C6F;
+  box-shadow: 0 0 0 0.125rem #D97C6F;
+}
+
+.input-text:hover {
+  border-color: #bbb;
+}
+
+/* Textarea styling for inputs */
+.input-textarea {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 0.125rem solid #ccc;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 0.875rem;
+  resize: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  color: #333;
 }
 
 .input-textarea:focus {
   outline: none;
-  border-color: #D97C6F; 
-  box-shadow: 0 0 0 0.125rem #D97C6F; 
+  border-color: #D97C6F;
+  box-shadow: 0 0 0 0.125rem #D97C6F;
 }
 
 .input-textarea:hover {
-  border-color: #bbb; /* Border color on hover */
+  border-color: #bbb;
 }
 
 /* Container for the right section */
 .right-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Space between elements */
+  gap: 1.5rem;
   flex: 1;
 }
 
@@ -121,7 +131,7 @@
 }
 
 .attach-resume:hover {
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Styling for the attach button */
@@ -141,11 +151,11 @@
   padding: 1.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s; 
+  transition: box-shadow 0.3s;
 }
 
 .section-card:hover {
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Title styling for each section card */
@@ -164,7 +174,7 @@
   width: 100%;
   font-size: 0.875rem;
   resize: none;
-  transition: border-color 0.3s, box-shadow 0.3s; 
+  transition: border-color 0.3s, box-shadow 0.3s;
   color: #333;
 }
 
@@ -175,5 +185,5 @@
 }
 
 .section-textarea:hover {
-  border-color: #bbb; 
+  border-color: #bbb;
 }
