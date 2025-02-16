@@ -90,7 +90,7 @@ function InterviewAI() {
     // 3) Convert feedback to speech via /text-to-speech
 // 3) Convert feedback to speech via /text-to-speech
 try {
-    const ttsResponse = await fetch("http://localhost:5000/text-to-speech", {
+    const ttsResponse = await fetch("http://localhost:5100/text-to-speech", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: geminiFeedback }),

@@ -13,6 +13,11 @@ import tempfile
 dotenv_path = Path('../../.env')
 load_dotenv()
 
+# Set the path to your ffmpeg binary folder.
+# Replace the value below with the actual path to your ffmpeg bin folder.
+FFMPEG_PATH = r"C:\Users\Phila\program_workspace\hackathon\project\p1\backend\ffmpeg-master-latest-win64-gpl-shared\bin"
+os.environ["PATH"] = FFMPEG_PATH + os.pathsep + os.environ.get("PATH", "")
+
 # Retrieve your Google Gemini API key from environment variables
 GOOGLE_GEMINI_API_KEY = os.getenv("GOOGLE_GEMINI_API_KEY")
 
@@ -33,25 +38,34 @@ def index():
 
 @app.route("/speech-to-text", methods=["POST"])
 def speech_to_text():
-    if "audio" not in request.files:
-        return jsonify({"error": "No audio file found in the request"}), 400
+    try:
+        audio_file = request.files["audio"]
+        if audio_file.filename == "":
+            return jsonify({"error": "No filename provided"}), 400
 
-    audio_file = request.files["audio"]
-    if audio_file.filename == "":
-        return jsonify({"error": "No filename provided"}), 400
+        # Save to a temporary file
+        with tempfile.NamedTemporaryFile(suffix=".webm", delete=False) as tmp:
+            tmp.write(audio_file.read())
+            tmp_path = tmp.name
 
-    # Save to a temporary file
-    with tempfile.NamedTemporaryFile(suffix=".webm", delete=False) as tmp:
-        tmp.write(audio_file.read())
-        tmp_path = tmp.name
+        try:
+            # Verify FFmpeg exists
+            ffmpeg_exe = os.path.join(FFMPEG_PATH, "ffmpeg.exe")
+            if not os.path.exists(ffmpeg_exe):
+                return jsonify({"error": f"FFmpeg not found at {ffmpeg_exe}"}), 500
 
-    # Now transcribe using the temp file path
-    result = whisper_model.transcribe(tmp_path, fp16=False)
-    text = result.get("text", "")
+            # Transcribe using the temp file path
+            result = whisper_model.transcribe(tmp_path, fp16=False)
+            text = result.get("text", "")
+            return jsonify({"transcript": text})
+        except Exception as e:
+            return jsonify({"error": f"Transcription error: {str(e)}"}), 500
+        finally:
+            # Cleanup temp file
+            os.unlink(tmp_path)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-    return jsonify({"transcript": text})
-
-# Endpoint 2: Google Gemini AI (Processes Response & Generates Feedback)
 @app.route("/interview", methods=["POST"])
 def interview():
     """
@@ -63,18 +77,15 @@ def interview():
     user_response = data.get("response")
 
     prompt = (
-        f"Interview question: {question}\n"
+        #f"Interview question: {question}\n"
         f"User's response: {user_response}\n"
         "respond normal"
     )
     gemini_response = genai.GenerativeModel("gemini-pro").generate_content(prompt)
-    
-    # Adjust if needed based on the actual response format
     feedback = gemini_response.text
 
     return jsonify({"feedback": feedback})
 
-# Endpoint 3: gTTS Text-to-Speech 
 @app.route("/text-to-speech", methods=["POST"])
 def text_to_speech():
     """
@@ -88,12 +99,11 @@ def text_to_speech():
 
     tts = gTTS(text=text_to_speak, lang="en")
     
-    # Use an in-memory buffer so we don't write to disk (optional).
+    # Use an in-memory buffer so we don't write to disk.
     mp3_buffer = BytesIO()
     tts.write_to_fp(mp3_buffer)
     mp3_buffer.seek(0)
 
-    # Return as an audio file
     return send_file(
         mp3_buffer,
         as_attachment=False,
