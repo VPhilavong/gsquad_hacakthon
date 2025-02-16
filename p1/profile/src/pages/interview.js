@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Interview.css';
+import './interview.css';
 
 const Interview = () => {
   const [isRecording, setIsRecording] = useState(false);

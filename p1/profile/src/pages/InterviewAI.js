@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-
+import './interview.css';
 function InterviewAI() {
   const [question, setQuestion] = useState("");
   const [feedback, setFeedback] = useState("");

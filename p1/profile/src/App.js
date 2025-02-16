@@ -4,11 +4,8 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-<<<<<<< HEAD
-import Interview from './pages/Interview';
-=======
+import Interview from './pages/interview';
 import Matches from './pages/Matches'; // Import MatchesPage
->>>>>>> main
 import Cookies from 'js-cookie'; // Import js-cookie
 import React, { useEffect, useState } from 'react';
 import InterviewAI from './pages/InterviewAI';
@@ -45,11 +42,8 @@ function App() {
         <Routes>
           <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-<<<<<<< HEAD
-          <Route path="/interview" element={<ProtectedRoute><Interview/></ProtectedRoute>} />
-=======
+          <Route path="/interview" element={<ProtectedRoute><InterviewAI/></ProtectedRoute>} />
           <Route path="/matches" element={<ProtectedRoute><Matches/></ProtectedRoute>} /> {/* New Route */}
->>>>>>> main
           <Route path="/login" element={<Login />} />
           <Route path='/' exact element={<Home />} />
           <Route path='/profile' element={<Profile />} />
