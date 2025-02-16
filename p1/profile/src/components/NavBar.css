@@ -1,9 +1,19 @@
-.navbar {
-    background-color: #8E8D8A;
+  .navbar {
+    background-color: #EAE7DC;
     height: 80px;
     display: flex;
-    justify-content: start;
     align-items: center;
+
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 200px;  /* Adjust this size */
+    width: auto;
+    object-fit: contain;  /* Ensures proper scaling */
   }
   
   .menu-bars {
@@ -66,7 +76,30 @@
     justify-content: start;
     align-items: center;
   }
-  
+  .logout-button {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 16px; /* Added more padding on the sides */
+    list-style: none;
+    height: 45px;
+    width: 90%; /* Slightly narrower for better spacing */
+    background: none;
+    border: none;
+    color: #EAE7DC;
+    font-size: 18px;
+    text-align: left;
+    cursor: pointer;
+    margin: 0 auto; /* Centering the button within the nav */
+    border-radius: 4px; /* Subtle rounding */
+}
+
+.logout-button:hover {
+    background-color: #E98074;
+    border-radius: 5px; /* More pronounced rounded corners on hover */
+}
+
+
   span {
     margin-left: 16px;
   }
