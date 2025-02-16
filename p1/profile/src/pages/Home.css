@@ -1,0 +1,96 @@
+/* Home container styles */
+.home {
+    padding: 20px;
+  }
+  
+  /* Job listing container with transition */
+  .job-listing {
+    width: 100%;
+    max-width: 100%;
+    height: 300px; /* Set a fixed height for the box */
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0; /* Initial opacity (invisible) */
+    transform: translateY(50px); /* Start from below */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Apply transition for opacity and translate */
+  }
+  
+  /* Apply the transition once the job is loaded */
+  .job-listing.show {
+    opacity: 1;
+    transform: translateY(0); /* Move into position */
+  }
+  
+  /* Job title styling */
+  .job-listing h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease; /* Optional, transition for title changes */
+  }
+  
+  /* Job description (company, location, etc.) */
+  .job-listing p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease; /* Optional, transition for paragraph changes */
+  }
+  
+  /* Job link button */
+  .job-link-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 100px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .job-link-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Navigation buttons for job changes */
+  .job-navigation {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Nav buttons */
+  .nav-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1); /* Optional scale effect on hover */
+  }
+  
+  .nav-button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  /* Adding transitions on job change */
+  .job-listing {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
