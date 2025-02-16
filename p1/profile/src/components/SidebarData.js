@@ -28,12 +28,6 @@ export const SidebarData = [
       path: '/matches',
       icon: <FaIcons.FaBriefcase />,
       cName: 'nav-text'
-    },
-    {
-      title: 'Matches',
-      path: '/matches',
-      icon: <FaIcons.FaBriefcase />,
-      cName: 'nav-text'
     }
     // {
     //   title: 'Logout',
