@@ -32,13 +32,23 @@
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 999;
   }
   
   .nav-menu.active {
     left: 0;
     transition: 350ms;
   }
-  
+    /* Overlay to dim the background when sidebar is active */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+    z-index: 998; /* Make sure overlay is below the sidebar */
+  }
   .nav-text {
     display: flex;
     justify-content: start;
