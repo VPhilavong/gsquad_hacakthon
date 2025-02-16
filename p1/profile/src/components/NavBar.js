@@ -16,16 +16,16 @@ function NavBar() {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#E98074' }}>
       
         <div className='navbar'>
           {/* Logo */}
-          <div className='logo'>
-            <img src={logo} alt='Logo' className='logo-img' />
-          </div>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <div className='logo'>
+            <img src={logo} alt='Logo' className='logo-img' />
+          </div>
         </div>
 
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>

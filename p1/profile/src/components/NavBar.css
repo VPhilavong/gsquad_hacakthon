@@ -1,15 +1,19 @@
-.navbar {
-    background-color: #8E8D8A;
+  .navbar {
+    background-color: #EAE7DC;
     height: 80px;
     display: flex;
-    justify-content: start;
+    align-items: center;
+
+  }
+  .logo {
+    display: flex;
     align-items: center;
   }
 
   .logo-img {
-    height: 50px;  /* Adjust the height of the logo */
-    width: auto;   /* Maintain aspect ratio */
-    object-fit: contain; /* Ensures the image fits the container */
+    height: 200px;  /* Adjust this size */
+    width: auto;
+    object-fit: contain;  /* Ensures proper scaling */
   }
   
   .menu-bars {
