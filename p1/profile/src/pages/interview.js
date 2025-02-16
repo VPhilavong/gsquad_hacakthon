@@ -26,7 +26,7 @@ const Interview = () => {
   return (
     <div className="container">
       <button className="button" onClick={handleButtonClick}>
-      <div className="button2">{isRecording ? 'Stop' : 'Start'}</div>       
+        <div className="button2">{isRecording ? 'Stop' : 'Start'}</div>
       </button>
       
     </div>
