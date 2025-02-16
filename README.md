@@ -10,18 +10,33 @@ sudo apt update
 sudo apt install python3-full python3-pip python3-venv
 ```
 
-## 1.2 activate the venv
+## 1.1
+```sh
+chmod +x install.sh
+chmod +x pyenv.sh
+```
 
-To activate the virtual environment, use:
+## 1.2 
+
+```sh
+./pyenv.sh
+```
+### 1.3 
 ```sh
 source venv/bin/activate
 ```
-### 1.2.3 deactivate the venv
+## 1.4
 ```sh
-deactivate
+./install.sh
 ```
-## 2. Download flask
-Now we need to install flask
+
+## 2
 ```sh
-pip install Flask
+Python3 p1/backend/app.py 
+```
+
+## 3 In a new terminal 
+```sh
+cd p1/profile
+npm start
 ```
