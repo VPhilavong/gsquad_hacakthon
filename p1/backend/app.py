@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 import datetime
+from flask_cors import CORS
 
 dotenv_path = Path('../../.env')
 load_dotenv()
@@ -14,6 +15,7 @@ supabase: Client = create_client(url, key)
 
 # Initialize Flask app
 app = Flask(__name__)
+CORS(app, supports_credentials=True) 
 
 @app.route("/")
 def home():
@@ -131,7 +133,7 @@ def logout():
 # Fetch user profile by user_id
 @app.route("/user_profile", methods=["GET"])
 def get_user_profile():
-    user_id = request.args.get("user_id")
+    user_id = request.cookies.get('user_id')
 
     if not user_id:
         return jsonify({"error": "User ID is required"}), 400
@@ -154,7 +156,7 @@ def get_user_profile():
 # Fetch user profile by user_id
 @app.route("/match_job", methods=["POST"])
 def match_job():
-    user_id = request.args.get('user_id')
+    user_id = request.cookies.get('user_id')
     job_id = request.args.get('job_id')
     
     if not user_id:
@@ -193,7 +195,7 @@ def match_job_recruiter():
     if not job_id:
         return jsonify({"error": "Job ID is required"}), 400
     
-    existing_match = supabase.table("job_matching").select("*").eq("user_id", applicant_id).eq("job_id", job_id).eq("recruiter_id", user_id).execute()
+    existing_match = supabase.table("job_matching").select("*").eq("applicant_id", applicant_id).eq("job_id", job_id).eq("recruiter_id", user_id).execute()
 
     if existing_match.data:  # If a match already exists
         return jsonify({"message": "Job already matched"}), 400
@@ -202,7 +204,7 @@ def match_job_recruiter():
         "recruiter_id": user_id
     }
     
-    response = supabase.table("job_matching").update(job_match_recruiter).eq("user_id", applicant_id).eq("job_id", job_id).execute()
+    response = supabase.table("job_matching").update(job_match_recruiter).eq("applicant_id", applicant_id).eq("job_id", job_id).execute()
 
     if "error" in response:
         return jsonify({"error": response["error"]["message"]}), 400
@@ -230,40 +232,6 @@ def update_profile():
         "update_profile": response.data[0]
     }), 200
 
-@app.route("/upload_photo", methods=["POST"])
-def upload_photo():
-    if 'photo' not in request.files:
-        return jsonify({"error": "No photo uploaded"}), 400
-    
-    photo = request.files['photo']
-    user_id = request.cookies.get('user_id')
-    
-    if not user_id:
-        return jsonify({"error": "User ID is required"}), 400
-    
-    # Generate a unique filename
-    file_extension = photo.filename.split('.')[-1]
-    unique_filename = f"{user_id}_{uuid.uuid4().hex}.{file_extension}"
-    file_path = f"profile_pic/{unique_filename}"
-    
-    # Upload to Supabase Storage
-    bucket = supabase.storage.from_('profile_pic')
-    response = bucket.upload(file_path, photo.stream.read(), {'content-type': photo.content_type})
-    
-    if "error" in response:
-        return jsonify({"error": response["error"]["message"]}), 400
-    
-    # Generate public URL
-    photo_url = f"{url}/storage/v1/object/public/profile_pic/{unique_filename}"
-    
-    # Update user profile with photo URL
-    update_response = supabase.table("user_profile").update({"photo_photo_url": photo_url}).eq("user_id", user_id).execute()
-    
-    if "error" in update_response:
-        return jsonify({"error": update_response["error"]["message"]}), 400
-    
-    return jsonify({"message": "Photo uploaded successfully", "photo_url": photo_url}), 200
-
 
 @app.route("/get_job_matches", methods=["GET"])
 def get_job_matches():
@@ -284,4 +252,4 @@ def get_job_matches():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=8000, debug=True)

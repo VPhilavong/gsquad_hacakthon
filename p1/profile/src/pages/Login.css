@@ -1,4 +1,184 @@
-.container {
+/* Profile Page */
+.profile-page {
+    min-height: 100vh;
+    background-color: #EAE7DC; /* Light cream background */
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  /* Main container holding the profile section and right section */
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  @media (min-width: 768px) {
+    .main-container {
+      flex-direction: row;
+      margin-top: 4rem;
+    }
+  }
+  
+  /* Profile Section */
+  .profile-section {
+    background-color: #D8C3A5; /* Warm beige background */
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    max-width: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Profile Image */
+  .profile-img {
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    border: 0.25rem solid #E98074; /* Soft coral border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .profile-img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Profile Name */
+  .profile-name {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    color: #333;
+  }
+  
+  /* Profile Title */
+  .profile-title {
+    font-size: 0.875rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+  
+  /* Input Container */
+  .input-container {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+  
+  /* Label for Input Fields */
+  .input-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  /* Textarea Styling */
+  .input-textarea {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0.125rem solid #ccc;
+    border-radius: 1rem;
+    padding: 0.75rem;
+    width: 100%;
+    font-size: 0.875rem;
+    resize: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .input-textarea:focus {
+    outline: none;
+    border-color: #D97C6F; /* Coral focus color */
+    box-shadow: 0 0 0 0.125rem #D97C6F;
+  }
+  
+  .input-textarea:hover {
+    border-color: #bbb;
+  }
+  
+  /* Right Section */
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+  }
+  
+  /* Attach Resume Section */
+  .attach-resume {
+    background-color: #E98074; /* Soft coral background */
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    transition: box-shadow 0.3s;
+  }
+  
+  .attach-resume:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Attach Button */
+  .attach-button {
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: transform 0.3s;
+  }
+  
+  .attach-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Section Card */
+  .section-card {
+    background-color: #E98074;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  .section-card:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Section Card Title */
+  .section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  /* Section Card Textarea */
+  .section-textarea {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 0.125rem solid #ccc;
+    border-radius: 1rem;
+    padding: 0.75rem;
+    width: 100%;
+    font-size: 0.875rem;
+    resize: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    color: #333;
+  }
+  
+  .section-textarea:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 0 0.125rem white;
+  }
+  
+  .section-textarea:hover {
+    border-color: #bbb;
+  }
+  
+  /* Container */
+  .container {
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -6,78 +186,81 @@
     width: 600px;
     background: #fff;
     padding-bottom: 30px;
-}
-
-.header {
-    display:flex;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 9px;
     width: 100%;
     margin-top: 30px;
-}
-
-.text {
-    color: black;
-    font-size: 48;
+  }
+  
+  .text {
+    color: #333;
+    font-size: 48px;
     font-weight: 700;
-}
-
-.underline {
+  }
+  
+  .underline {
     width: 61px;
     height: 6px;
-    background: black;
+    background: #333;
     border-radius: 9px;
-}
-
-.inputs {
+  }
+  
+  /* Inputs */
+  .inputs {
     margin-top: 55px;
     display: flex;
     flex-direction: column;
     gap: 25px;
-}
-
-.input {
+  }
+  
+  .input {
     display: flex;
     align-items: center;
     margin: auto;
-    width: 480;
+    width: 480px;
     height: 80px;
-    background: blue;
+    background: #E98074; /* Coral background */
     border-radius: 6px;
-}
-
-.input input{
+  }
+  
+  .input input {
     height: 50px;
     width: 400px;
     background: transparent;
     border: none;
     outline: none;
-    color: red;
+    color: #333;
     font-size: 19px;
-}
-
-.submit-container{
+  }
+  
+  /* Submit Container */
+  .submit-container {
     display: flex;
     gap: 30px;
     margin: 60px auto;
-}
-
-.submit {
+  }
+  
+  .submit {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 220px;
     height: 59px;
     color: #fff;
-    background-color: blue;
+    background-color: #E98074; /* Coral background */
     border-radius: 50px;
     font-size: 19px;
     font-weight: 700;
     cursor: pointer;
-}
-
-.gray {
+  }
+  
+  .gray {
     background: #EAEAEA;
     color: #676767;
-}
+  }
