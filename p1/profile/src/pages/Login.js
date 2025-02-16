@@ -170,6 +170,7 @@ const Login = () => {
 
                     {/* Dropdown for Role */}
                     <div className="input">
+                        <CiUser />
                         <select 
                             value={role} 
                             onChange={(e) => setRole(e.target.value)} 
