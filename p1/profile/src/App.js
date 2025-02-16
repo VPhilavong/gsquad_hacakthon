@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Matches from './pages/Matches'; // Import MatchesPage
+import Interview from './pages/Interview';
 import Cookies from 'js-cookie'; // Import js-cookie
 import React, { useEffect, useState } from 'react';
 import InterviewAI from './pages/InterviewAI';
@@ -39,9 +40,10 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/matches" element={<ProtectedRoute><Matches/></ProtectedRoute>} /> {/* New Route */}
+          <Route path="/interview" element={<ProtectedRoute><Interview/></ProtectedRoute>} />
           <Route path="/login" element={<Login />} />
           <Route path='/' exact element={<Home />} />
           <Route path='/profile' element={<Profile />} />

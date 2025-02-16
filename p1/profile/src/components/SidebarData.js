@@ -1,19 +1,32 @@
 import React from 'react';
-import * as FaIcons from "react-icons/fa6";
 import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
+import { GiBrain } from "react-icons/gi";
+import { CgProfile } from "react-icons/cg";
+import * as FaIcons from "react-icons/fa"
 
 export const SidebarData = [
     {
       title: 'Home',
       path: '/',
-      icon: <AiIcons.AiFillHome />,
+      icon: <AiIcons.AiFillHome color='#E85A4F'  />,
       cName: 'nav-text'
     },
     {
       title: 'Profile',
       path: '/profile',
-      icon: <IoIcons.IoIosPaper />,
+      icon: <CgProfile color='#E85A4F'/>,
+      cName: 'nav-text'
+    },
+    {
+      title: 'Interview',
+      path: '/interview',
+      icon: <GiBrain color='#E85A4F'/>,
+      cName: 'nav-text'
+    },
+    {
+      title: 'Matches',
+      path: '/matches',
+      icon: <FaIcons.FaBriefcase />,
       cName: 'nav-text'
     },
     {
@@ -22,12 +35,6 @@ export const SidebarData = [
       icon: <FaIcons.FaBriefcase />,
       cName: 'nav-text'
     }
-    // {
-    //   title: 'Login',
-    //   path: '/login',
-    //   icon: <FaIcons.FaCartPlus />,
-    //   cName: 'nav-text'
-    // },
     // {
     //   title: 'Logout',
     //   path: '/logout',

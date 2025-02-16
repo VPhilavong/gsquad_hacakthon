@@ -108,7 +108,7 @@ const Login = () => {
             {/* Input fields */}
             <div className="inputs">
                 <div className="input">
-                    <MdOutlineMailOutline />
+                    <MdOutlineMailOutline color="#fff" className="icon"/>
                     <input 
                         type="email" 
                         placeholder="Email" 
@@ -119,7 +119,7 @@ const Login = () => {
             </div>
             <div className="inputs">
                 <div className="input">
-                    <CiLock />
+                    <CiLock color="#fff" className="icon"/>
                     <input 
                         type="password" 
                         placeholder="Password" 
@@ -132,7 +132,7 @@ const Login = () => {
             {action === "Sign Up" && (
                 <div className="inputs">
                     <div className="input">
-                        <CiUser />
+                        <CiUser color="#fff" className="icon"/>
                         <input 
                             type="text" 
                             placeholder="First Name" 
@@ -141,7 +141,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="input">
-                        <CiUser />
+                        <CiUser color="#fff" className="icon"/>
                         <input 
                             type="text" 
                             placeholder="Last Name" 
@@ -150,7 +150,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="input">
-                        <CiUser />
+                        <CiUser color="#fff" className="icon"/>
                         <input 
                             type="text" 
                             placeholder="Job Title" 
@@ -159,7 +159,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="input">
-                        <CiUser />
+                        <CiUser color="#fff" className="icon"/>
                         <input 
                             type="text" 
                             placeholder="Phone Number" 
@@ -170,7 +170,6 @@ const Login = () => {
 
                     {/* Dropdown for Role */}
                     <div className="input">
-                        <CiUser />
                         <select 
                             value={role} 
                             onChange={(e) => setRole(e.target.value)} 
