@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './interview.css';
+import './Interview.css';
 
-const App = () => {
+const Interview = () => {
   const [isRecording, setIsRecording] = useState(false);
 
   const handleButtonClick = () => {
@@ -26,10 +26,12 @@ const App = () => {
   return (
     <div className="container">
       <button className="button" onClick={handleButtonClick}>
-        {isRecording ? 'Stop' : 'Start'}
+      <div className="button2">{isRecording ? 'Stop' : 'Start'}</div>
+        
       </button>
+      
     </div>
   );
 };
 
-export default App;
+export default Interview;
