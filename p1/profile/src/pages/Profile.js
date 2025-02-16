@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ProfilePage = () => {
+const Profile = () => {
   const [summary, setSummary] = useState("Enter A Summary Here");
   const [education, setEducation] = useState("Enter Education Here");
   const [workExperience, setWorkExperience] = useState("Enter Work Experience Here");
@@ -66,4 +66,8 @@ const SectionCard = ({ title, value, onChange }) => (
   </div>
 );
 
+<<<<<<< HEAD
 export default ProfilePage;
+=======
+export default Profile;
+>>>>>>> 70c1ad73bc49c06b1fe334ffbf2b040766bccba8
