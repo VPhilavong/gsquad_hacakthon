@@ -23,12 +23,15 @@ chmod +x pyenv.sh
 ```
 ### 1.3 
 ```sh
-source venv/bin/activate
+source .venv/bin/activate
 ```
 ## 1.4
 ```sh
 ./install.sh
 ```
+
+## 1.5
+move env file into top directory and rename to .env
 
 ## 2
 ```sh

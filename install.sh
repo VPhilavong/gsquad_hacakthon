@@ -17,5 +17,7 @@ pip3 install -r requirements.txt
 # Change to the /profile directory for npm install
 cd "$NPM_DIR" || { echo "Profile directory not found! Exiting..."; exit 1; }
 
+brew install node
+
 # Install Node.js dependencies
 npm install
