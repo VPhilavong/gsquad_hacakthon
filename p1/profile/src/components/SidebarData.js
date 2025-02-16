@@ -2,7 +2,7 @@ import React from 'react';
 import * as AiIcons from "react-icons/ai";
 import { GiBrain } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
-import * as FaIcons from "react-icons/fa";
+import * as FaIcons from "react-icons/fa"
 
 export const SidebarData = [
     {
