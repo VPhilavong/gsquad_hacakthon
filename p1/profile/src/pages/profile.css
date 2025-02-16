@@ -179,3 +179,27 @@
   border-color: #bbb; 
 }
 
+/* Submit Button Container */
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: auto; /* Push to bottom */
+  padding: 2rem 0; /* Space from content */
+}
+
+/* Submit Button Styling */
+.submit {
+  background-color: #E98074;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.submit:hover {
+  background-color: #D97C6F;
+  transform: scale(1.05);
+}
