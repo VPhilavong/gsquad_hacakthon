@@ -76,6 +76,12 @@ const Login = () => {
         }
     };
 
+      const handleLogout = () => {
+        Cookies.remove('user_id'); // Remove user_id cookie
+        Cookies.remove('access_token'); // Remove access_token cookie
+        navigate("/login"); // Redirect to login page
+      };
+
     return (
         <div className="container">
             <div className="header">
@@ -176,15 +182,20 @@ const Login = () => {
             {error && <div className="error">{error}</div>}
 
             {/* Submit Button */}
+            
             {action === "Login" && (
-                <button className="submit" onClick={handleLogin}>
-                    Submit
-                </button>
+                <div className="submit-container2">
+                    <button className="submit" onClick={handleLogin}>
+                        Submit
+                    </button>
+                </div>
             )}
             {action === "Sign Up" && (
-                <button className="submit" onClick={handleSignup}>
-                    Register
-                </button>
+                <div className="submit-container2">
+                    <button className="submit" onClick={handleSignup}>
+                        Register
+                    </button>
+                </div>
             )}
         </div>
     );

@@ -67,7 +67,7 @@ const ProfilePage = () => {
   return (
     <div className="profile-page">
       <div className="main-container">
-        
+
         {/* Profile Section */}
         <div className="profile-section">
           <img
