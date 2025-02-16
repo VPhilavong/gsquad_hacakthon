@@ -1,125 +1,181 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Lato', sans-serif;
+/* Container for the entire profile page */
+.profile-page {
+  min-height: 100vh; 
+  background-color: #EAE7DC; 
+  flex-direction: column;
+  padding: 1rem; 
 }
 
-/* Main container for the entire layout */
+/* Main container holding the profile section and right section */
 .main-container {
-  position: relative;
-  width: 1512px;
-  height: 982px;
-  background: #D8C3A5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+  margin-top: 3rem; 
+  margin-bottom: 3rem;
 }
 
-/* Main content rectangle */
-.rectangle-9 {
-  position: absolute;
-  width: 978px;
-  height: 813px;
-  left: 267px;
-  top: 154px;
-  background: #EAE7DC;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
+@media (min-width: 768px) {
+  /* Adjust the main container for larger screens */
+  .main-container {
+    flex-direction: row;
+    margin-top: 4rem;
+  }
 }
 
-/* Background image */
-.shutterstock {
-  position: absolute;
-  width: 450px;
-  height: 346px;
-  background: url('shutterstock_192086159.jpg') no-repeat center/cover;
-  border: 1px solid #000000;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 40px;
+/* Profile section styling */
+.profile-section {
+  background-color: #D8C3A5; 
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
+  max-width: 12%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
-/* Job title text */
-.positiontitle {
-  position: absolute;
-  width: 1085px;
-  height: 86px;
-  left: 314px;
-  top: 561px;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 65px;
-  color: #000000;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+/* Profile image styling */
+.profile-img {
+  border-radius: 50%; 
+  width: 8rem; 
+  height: 8rem; 
+  border: 0.25rem solid #E98074; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; 
 }
 
-/* Placeholder text block */
-.placeholder-text {
-  position: absolute;
-  width: 885px;
-  height: 186px;
-  left: 322px;
-  top: 637px;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 43px;
-  color: #000000;
+.profile-img:hover {
+  transform: scale(1.05); /* Scale up on hover */
 }
 
-/* Ellipse 1 & 2 */
-.ellipse-1, .ellipse-2 {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background: #E98074;
+/* Profile name styling */
+.profile-name {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  color: #333; 
 }
 
-.ellipse-1 {
-  left: 575px;
-  top: 812px;
+/* Profile title styling */
+.profile-title {
+  font-size: 0.875rem; 
+  color: #555; 
+  margin-top: 0.5rem;
 }
 
-.ellipse-2 {
-  left: 856px;
-  top: 812px;
+/* Container for input fields in the profile section */
+.input-container {
+  width: 100%;
+  margin-top: 1.5rem;
 }
 
-/* Lines inside Ellipse 1 */
-.line-8, .line-9 {
-  position: absolute;
-  width: 74px;
-  height: 0px;
-  border: 9px solid #FFFFFF;
+/* Label for input fields */
+.input-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
 }
 
-.line-8 {
-  left: 606px;
-  top: 849px;
-  transform: rotate(45deg);
+/* Textarea styling for inputs */
+.input-textarea {
+  background-color: rgba(255, 255, 255, 0.5); 
+  border: 0.125rem solid #ccc; 
+  border-radius: 1rem; 
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 0.875rem; 
+  resize: none; 
+  transition: border-color 0.3s, box-shadow 0.3s; 
 }
 
-.line-9 {
-  left: 612px;
-  top: 901px;
-  transform: rotate(-45deg);
+.input-textarea:focus {
+  outline: none;
+  border-color: #D97C6F; 
+  box-shadow: 0 0 0 0.125rem #D97C6F; 
 }
 
-/* Elevate Logo */
-.elevate {
-  position: absolute;
-  width: 332px;
-  height: 332px;
-  left: 598px;
-  top: -85px;
-  background: url('Elevate-removebg-preview.png') no-repeat center/cover;
+.input-textarea:hover {
+  border-color: #bbb; /* Border color on hover */
 }
 
-/* Jeff Bezos Image */
-.jeff-bezos {
-  position: absolute;
-  width: 123px;
-  height: 118px;
-  left: 1338px;
-  top: 15px;
-  background: url('jeff-bezos-01-304.jpg') no-repeat center/cover;
-  border: 7px solid #E98074;
+/* Container for the right section */
+.right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between elements */
+  flex: 1;
 }
+
+/* Styling for the attach resume section */
+.attach-resume {
+  background-color: #E98074;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  transition: box-shadow 0.3s;
+}
+
+.attach-resume:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); 
+}
+
+/* Styling for the attach button */
+.attach-button {
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: transform 0.3s;
+}
+
+.attach-button:hover {
+  transform: scale(1.05);
+}
+
+/* Styling for each section card */
+.section-card {
+  background-color: #E98074;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s; 
+}
+
+.section-card:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); 
+}
+
+/* Title styling for each section card */
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Textarea styling for each section card */
+.section-textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0.125rem solid #ccc;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 0.875rem;
+  resize: none;
+  transition: border-color 0.3s, box-shadow 0.3s; 
+  color: #333;
+}
+
+.section-textarea:focus {
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 0 0.125rem white;
+}
+
+.section-textarea:hover {
+  border-color: #bbb; 
+}
+

@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './NavBar.css';
 import { IconContext } from 'react-icons';
+import useAuth from "./useAuth";
 
 function NavBar() {
-  const [sidebar, setSidebar] = useState(false);
 
+  const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+  const { handleLogout } = useAuth();
 
   return (
     <>
@@ -36,6 +38,9 @@ function NavBar() {
                 </li>
               );
             })}
+            <li>
+              <button className='logout-button' onClick={handleLogout}>Logout</button>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>
