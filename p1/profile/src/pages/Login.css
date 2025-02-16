@@ -16,7 +16,12 @@
   .section-title {
     font-size: 1.125rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
   }
   
   /* Section Card Textarea */
@@ -43,25 +48,19 @@
   }
   
   /* Container */
-  .container {
+  .login-container {
     display: flex;
     flex-direction: column;
     margin: auto;
     margin-top: 50px;
     width: 600px;
-    background-color: #aea175;
+    background-color: #EAE7DC;
     padding-bottom: 30px;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
   }
-  
-  /* Header */
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 9px;
-    width: 100%;
-    margin-top: 30px;
-  }
+
   
   .text {
     color: #333;
@@ -79,7 +78,7 @@
   
   /* Inputs */
   .inputs {
-    margin-top: 55px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -93,6 +92,7 @@
     height: 80px;
     background: #E98074; /* Coral background */
     border-radius: 6px;
+    color:#EAE7DC;
   }
   
   .input input {
@@ -103,6 +103,7 @@
     outline: none;
     color: #333;
     font-size: 19px;
+    color:#EAE7DC;
   }
   
   /* Submit Container */
@@ -112,7 +113,7 @@
     justify-content: center; /* Centers the button horizontally */
     align-items: center; /* Centers content vertically */
     gap: 40px;
-    margin: 60px auto;
+    margin: 20px auto;
     width: 100%; /* Ensures it takes full width for centering */
 }
 .submit-container2 {
@@ -148,4 +149,20 @@
   .icon{
     margin-right: 8px;
     margin-left: 8px;
+  }
+
+  .role-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+    width: 220px;
+    height: 59px;
+    color: #fff;
+    background-color: #df9289; /* Coral background */
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
   }

@@ -132,18 +132,18 @@ try {
         />
       </div>
 
-      <div style={{ marginBottom: 10 }}>
-        <button onClick={startRecording} disabled={recordingStatus === "recording"}>
-          Start Recording
-        </button>
-        <button onClick={stopRecording} disabled={recordingStatus !== "recording"}>
-          Stop Recording
-        </button>
+      <div className="ai-button-container">
+      <button
+        onClick={recordingStatus === "recording" ? stopRecording : startRecording}
+        className="ai-button1"
+      >
+        <div className="ai-button2">{recordingStatus === "recording" ? "Stop Recording" : "Start Recording"}</div>
+      </button>
       </div>
 
       <p>Status: {recordingStatus}</p>
 
-      <div style={{ marginTop: 20 }}>
+      <div className="feedback">
         <h3>AI Feedback:</h3>
         <p>{feedback}</p>
       </div>
