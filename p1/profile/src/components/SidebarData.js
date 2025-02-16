@@ -21,6 +21,12 @@ export const SidebarData = [
       path: '/interview',
       icon: <GiBrain color='#E85A4F'/>,
       cName: 'nav-text'
+    },
+    {
+      title: 'Matches',
+      path: '/matches',
+      icon: <FaIcons.FaBriefcase />,
+      cName: 'nav-text'
     }
     // {
     //   title: 'Logout',
