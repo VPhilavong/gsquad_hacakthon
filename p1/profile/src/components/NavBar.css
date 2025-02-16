@@ -1,15 +1,19 @@
-.navbar {
-    background-color: #8E8D8A;
+  .navbar {
+    background-color: #EAE7DC;
     height: 80px;
     display: flex;
-    justify-content: start;
+    align-items: center;
+
+  }
+  .logo {
+    display: flex;
     align-items: center;
   }
 
   .logo-img {
-    height: 50px;  /* Adjust the height of the logo */
-    width: auto;   /* Maintain aspect ratio */
-    object-fit: contain; /* Ensures the image fits the container */
+    height: 200px;  /* Adjust this size */
+    width: auto;
+    object-fit: contain;  /* Ensures proper scaling */
   }
   
   .menu-bars {
@@ -28,13 +32,23 @@
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 999;
   }
   
   .nav-menu.active {
     left: 0;
     transition: 350ms;
   }
-  
+    /* Overlay to dim the background when sidebar is active */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+    z-index: 998; /* Make sure overlay is below the sidebar */
+  }
   .nav-text {
     display: flex;
     justify-content: start;

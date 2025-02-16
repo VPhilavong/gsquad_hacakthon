@@ -1,11 +1,12 @@
+import './NavBar.css';
+import useAuth from "./useAuth";
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { IoIosLogOut } from "react-icons/io";
 import { SidebarData } from './SidebarData';
-import './NavBar.css';
 import { IconContext } from 'react-icons';
-import useAuth from "./useAuth";
 import logo from '../assets/elevate-logo.png';
 
 function NavBar() {
@@ -16,23 +17,26 @@ function NavBar() {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#E98074' }}>
       
         <div className='navbar'>
           {/* Logo */}
-          <div className='logo'>
-            <img src={logo} alt='Logo' className='logo-img' />
-          </div>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <div className='logo'>
+            <img src={logo} alt='Logo' className='logo-img' />
+          </div>
         </div>
+
+      {/* Overlay (Dim background) */}
+      {sidebar && <div className='overlay' onClick={showSidebar}></div>}
 
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
               <Link to='#' className='menu-bars'>
-                <AiIcons.AiOutlineClose />
+                <AiIcons.AiOutlineClose color='#E85A4F'/>
               </Link>
             </li>
             {SidebarData.map((item, index) => {
@@ -46,7 +50,7 @@ function NavBar() {
               );
             })}
             <li>
-              <button className='logout-button' onClick={handleLogout}>Logout</button>
+              <button className='logout-button' onClick={handleLogout}><IoIosLogOut color='#E85A4F'/><span>Logout</span></button>
             </li>
           </ul>
         </nav>
