@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import Interview from './pages/Interview';
 import Cookies from 'js-cookie'; // Import js-cookie
 import React, { useEffect, useState } from 'react';
 

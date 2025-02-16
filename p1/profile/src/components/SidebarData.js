@@ -17,8 +17,8 @@ export const SidebarData = [
       cName: 'nav-text'
     },
     {
-      title: 'Interview AI',
-      path: '/interview-ai',
+      title: 'Interview',
+      path: 'interview',
       icon: <GiBrain color='#E85A4F'/>,
       cName: 'nav-text'
     }
