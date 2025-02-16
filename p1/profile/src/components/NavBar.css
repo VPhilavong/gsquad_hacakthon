@@ -5,10 +5,6 @@
     justify-content: start;
     align-items: center;
   }
-  .logo {
-    justify-content: start;
-    align-items: center;
-  }
 
   .logo-img {
     height: 50px;  /* Adjust the height of the logo */
