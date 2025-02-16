@@ -28,6 +28,9 @@ function NavBar() {
           </div>
         </div>
 
+      {/* Overlay (Dim background) */}
+      {sidebar && <div className='overlay' onClick={showSidebar}></div>}
+      
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
