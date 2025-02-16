@@ -18,7 +18,7 @@ export const SidebarData = [
       cName: 'nav-text'
     },
     {
-      title: 'Interview',
+      title: 'InterviewAI',
       path: '/interview',
       icon: <GiBrain color='#E85A4F'/>,
       cName: 'nav-text'
@@ -26,7 +26,7 @@ export const SidebarData = [
     {
       title: 'Matches',
       path: '/matches',
-      icon: <FaIcons.FaBriefcase />,
+      icon: <FaIcons.FaBriefcase color='#E85A4F'/>,
       cName: 'nav-text'
     }
     // {

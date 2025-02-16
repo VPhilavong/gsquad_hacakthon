@@ -42,6 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/interview" element={<ProtectedRoute><InterviewAI/></ProtectedRoute>} />
           <Route path="/matches" element={<ProtectedRoute><Matches/></ProtectedRoute>} /> {/* New Route */}
           <Route path="/interview" element={<ProtectedRoute><Interview/></ProtectedRoute>} />
           <Route path="/login" element={<Login />} />

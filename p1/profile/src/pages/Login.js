@@ -83,124 +83,126 @@ const Login = () => {
     };
 
     return (
-        <div className="container">
-            <div className="header">
-                <div className="text">{action}</div>
-                <div className="underline"></div>
-            </div>
-
-            {/* Move the Login and Sign Up buttons to the top */}
-            <div className="submit-container">
-                <button 
-                    className={action === "Login" ? "submit gray" : "submit"} 
-                    onClick={() => setAction("Sign Up")}
-                >
-                    Sign Up
-                </button>
-                <button 
-                    className={action === "Sign Up" ? "submit gray" : "submit"} 
-                    onClick={() => setAction("Login")}
-                >
-                    Login
-                </button>
-            </div>
-
-            {/* Input fields */}
-            <div className="inputs">
-                <div className="input">
-                    <MdOutlineMailOutline color="#fff" className="icon"/>
-                    <input 
-                        type="email" 
-                        placeholder="Email" 
-                        value={email} 
-                        onChange={(e) => setEmail(e.target.value)} 
-                    />
+        
+            <div className="login-container">
+                <div className="section-title">
+                    <div className="text">{action}</div>
+                    <div className="underline"></div>
                 </div>
-            </div>
-            <div className="inputs">
-                <div className="input">
-                    <CiLock color="#fff" className="icon"/>
-                    <input 
-                        type="password" 
-                        placeholder="Password" 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
-                    />
-                </div>
-            </div>
 
-            {action === "Sign Up" && (
+                {/* Move the Login and Sign Up buttons to the top */}
+                <div className="submit-container">
+                    <button 
+                        className={action === "Login" ? "submit gray" : "submit"} 
+                        onClick={() => setAction("Sign Up")}
+                    >
+                        Sign Up
+                    </button>
+                    <button 
+                        className={action === "Sign Up" ? "submit gray" : "submit"} 
+                        onClick={() => setAction("Login")}
+                    >
+                        Login
+                    </button>
+                </div>
+
+                {/* Input fields */}
                 <div className="inputs">
                     <div className="input">
-                        <CiUser color="#fff" className="icon"/>
+                        <MdOutlineMailOutline color="#fff" className="icon"/>
                         <input 
-                            type="text" 
-                            placeholder="First Name" 
-                            value={firstName} 
-                            onChange={(e) => setFirstName(e.target.value)} 
+                            type="email" 
+                            placeholder="Email" 
+                            value={email} 
+                            onChange={(e) => setEmail(e.target.value)} 
                         />
-                    </div>
-                    <div className="input">
-                        <CiUser color="#fff" className="icon"/>
-                        <input 
-                            type="text" 
-                            placeholder="Last Name" 
-                            value={lastName} 
-                            onChange={(e) => setLastName(e.target.value)} 
-                        />
-                    </div>
-                    <div className="input">
-                        <CiUser color="#fff" className="icon"/>
-                        <input 
-                            type="text" 
-                            placeholder="Job Title" 
-                            value={jobTitle} 
-                            onChange={(e) => setJobTitle(e.target.value)} 
-                        />
-                    </div>
-                    <div className="input">
-                        <CiUser color="#fff" className="icon"/>
-                        <input 
-                            type="text" 
-                            placeholder="Phone Number" 
-                            value={phoneNumber} 
-                            onChange={(e) => setPhoneNumber(e.target.value)} 
-                        />
-                    </div>
-
-                    {/* Dropdown for Role */}
-                    <div className="input">
-                        <select 
-                            value={role} 
-                            onChange={(e) => setRole(e.target.value)} 
-                            className="role-dropdown"
-                        >
-                            <option value="">Select Role</option>
-                            <option value="recruiter">Recruiter</option>
-                            <option value="applicant">Applicant</option>
-                        </select>
                     </div>
                 </div>
-            )}
-
-            {error && <div className="error">{error}</div>}
-
-            {/* Submit Button */}
-            {action === "Login" && (
-                <div className="submit-container2">
-                    <button className="submit" onClick={handleLogin}>
-                        Submit
-                    </button>
+                <div className="inputs">
+                    <div className="input">
+                        <CiLock color="#fff" className="icon"/>
+                        <input 
+                            type="password" 
+                            placeholder="Password" 
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)} 
+                        />
+                    </div>
                 </div>
-            )}
-            {action === "Sign Up" && (
-                <div className="submit-container2">
-                    <button className="submit" onClick={handleSignup}>
-                        Register
-                    </button>
-                </div>
-            )}
-        </div>
+
+                {action === "Sign Up" && (
+                    <div className="inputs">
+                        <div className="input">
+                            <CiUser color="#fff" className="icon"/>
+                            <input 
+                                type="text" 
+                                placeholder="First Name" 
+                                value={firstName} 
+                                onChange={(e) => setFirstName(e.target.value)} 
+                            />
+                        </div>
+                        <div className="input">
+                            <CiUser color="#fff" className="icon"/>
+                            <input 
+                                type="text" 
+                                placeholder="Last Name" 
+                                value={lastName} 
+                                onChange={(e) => setLastName(e.target.value)} 
+                            />
+                        </div>
+                        <div className="input">
+                            <CiUser color="#fff" className="icon"/>
+                            <input 
+                                type="text" 
+                                placeholder="Job Title" 
+                                value={jobTitle} 
+                                onChange={(e) => setJobTitle(e.target.value)} 
+                            />
+                        </div>
+                        <div className="input">
+                            <CiUser color="#fff" className="icon"/>
+                            <input 
+                                type="text" 
+                                placeholder="Phone Number" 
+                                value={phoneNumber} 
+                                onChange={(e) => setPhoneNumber(e.target.value)} 
+                            />
+                        </div>
+
+                        {/* Dropdown for Role */}
+                        <div className="input">
+                            <CiUser />
+                            <select 
+                                value={role} 
+                                onChange={(e) => setRole(e.target.value)} 
+                                className="role-dropdown"
+                            >
+                                <option value="">Select Role</option>
+                                <option value="recruiter">Recruiter</option>
+                                <option value="applicant">Applicant</option>
+                            </select>
+                        </div>
+                    </div>
+                )}
+
+                {error && <div className="error">{error}</div>}
+
+                {/* Submit Button */}
+                {action === "Login" && (
+                    <div className="submit-container2">
+                        <button className="submit" onClick={handleLogin}>
+                            Submit
+                        </button>
+                    </div>
+                )}
+                {action === "Sign Up" && (
+                    <div className="submit-container2">
+                        <button className="submit" onClick={handleSignup}>
+                            Register
+                        </button>
+                    </div>
+                )}
+            </div>
     );
 };
 
