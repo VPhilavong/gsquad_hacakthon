@@ -165,7 +165,7 @@ def match_job():
     existing_match = supabase.table("job_matching").select("*").eq("applicant_id", user_id).eq("job_id", job_id).execute()
 
     if existing_match.data:  # If a match already exists
-        return jsonify({"message": "Job already matched"}), 400
+        return jsonify({"message": "Job already matched"}), 200
     
     job_match_insert = {
         "applicant_id":user_id,
@@ -196,7 +196,7 @@ def match_job_recruiter():
     existing_match = supabase.table("job_matching").select("*").eq("applicant_id", applicant_id).eq("job_id", job_id).eq("recruiter_id", user_id).execute()
 
     if existing_match.data:  # If a match already exists
-        return jsonify({"message": "Job already matched"}), 400
+        return jsonify({"message": "Job already matched"}), 200
     
     job_match_recruiter = {
         "recruiter_id": user_id
@@ -269,7 +269,7 @@ def get_jobs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
-    
+
 
 @app.route("/get_applicants", methods=["GET"])
 def get_applicants():
