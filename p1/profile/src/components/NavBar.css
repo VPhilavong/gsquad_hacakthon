@@ -5,6 +5,16 @@
     justify-content: start;
     align-items: center;
   }
+  .logo {
+    justify-content: start;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 50px;  /* Adjust the height of the logo */
+    width: auto;   /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image fits the container */
+  }
   
   .menu-bars {
     margin-left: 2rem;

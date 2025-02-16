@@ -6,6 +6,7 @@ import { SidebarData } from './SidebarData';
 import './NavBar.css';
 import { IconContext } from 'react-icons';
 import useAuth from "./useAuth";
+import logo from '../assets/elevate-logo.png';
 
 function NavBar() {
 
@@ -16,11 +17,17 @@ function NavBar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
+      
         <div className='navbar'>
+          {/* Logo */}
+          <div className='logo'>
+            <img src={logo} alt='Logo' className='logo-img' />
+          </div>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
         </div>
+
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
